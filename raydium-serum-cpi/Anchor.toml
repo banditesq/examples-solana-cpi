@@ -1,0 +1,14 @@
+[features]
+seeds = false
+[programs.devnet]
+serum_cpi = "HrcTxLg9VgssWFr28GFsE2uQUN212B5p48hGTgA1RG9u"
+
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "devnet"
+wallet = "/Users/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
