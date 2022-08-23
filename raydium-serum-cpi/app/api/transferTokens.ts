@@ -1,6 +1,4 @@
-import { Connection, Keypair, clusterApiUrl, PublicKey, Transaction, sendAndConfirmTransaction, SYSVAR_RENT_PUBKEY } from "@solana/web3.js";
-import { getMint, createMint, Mint, mintTo, createAssociatedTokenAccountInstruction, getAssociatedTokenAddress, TOKEN_PROGRAM_ID } from "@solana/spl-token";
-import { initializeMarket } from "./listMarket";
+import {  TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import * as anchor from '@project-serum/anchor';
 import { Program } from "@project-serum/anchor";
 import { ITokenAccounts } from "./initTokens";

@@ -31,70 +31,6 @@ export const start = async () => {
 
     console.log("Balance: ", await connection.getBalance(feePayer.publicKey));
 
-
-
-
-
-
-
-    // const base_temp_token_account = Keypair.generate();
-    // const quote_temp_token_account = Keypair.generate();
-
-    // const base_token = Keypair.generate();
-    // const quote_token = Keypair.generate();
-
-
-
-
-
-
-
-
-    // // TRANSFER TOKENS FUNCTION
-
-    // const base_mint = await createMint(
-    //     connection, feePayer, feePayer.publicKey, feePayer.publicKey, 9, base_token
-    // )
-    // const quote_mint = await await createMint(
-    //     connection, feePayer, feePayer.publicKey, feePayer.publicKey, 9, quote_token
-    // )
-
-    // console.log("base mint", base_mint.toBase58());
-    // console.log("quote mint", quote_mint.toBase58());
-
-    // const base_ATA = await getAssociatedTokenAddress(base_mint, feePayer.publicKey, false);
-    // const quote_ATA = await getAssociatedTokenAddress(quote_mint, feePayer.publicKey, false);
-    // const createBaseATAix = createAssociatedTokenAccountInstruction(feePayer.publicKey, base_ATA, feePayer.publicKey, base_mint);
-    // const createQuoteATAix = createAssociatedTokenAccountInstruction(feePayer.publicKey, quote_ATA, feePayer.publicKey, quote_mint);
-
-
-
-
-    // const transaction = new Transaction().add(createBaseATAix, createQuoteATAix)
-    // transaction.recentBlockhash = await (await connection.getLatestBlockhash()).blockhash;
-    // transaction.feePayer = wallet.publicKey;
-
-    // const tx_signature = await sendAndConfirmTransaction(connection, transaction, [feePayer])
-    // await connection.confirmTransaction(tx_signature, 'finalized')
-
-    // await connection.confirmTransaction(await mintTo(
-    //     connection,
-    //     feePayer,
-    //     base_mint,
-    //     base_ATA,
-    //     feePayer,
-    //     Number(1e9)
-    // ), 'finalized')
-    // await connection.confirmTransaction(await mintTo(
-    //     connection,
-    //     feePayer,
-    //     quote_mint,
-    //     quote_ATA,
-    //     feePayer,
-    //     Number(1e9)),
-    //     'finalized'
-    // )
-    // INIT TOKENS
     console.log("creating Tokens and transfering to ATA");
 
     const args = await initTokens(feePayer);
@@ -124,22 +60,9 @@ export const start = async () => {
           parseFloat(tickSize),
       );
     const market_id = await initializeMarket({connection,wallet,program,baseMint:args.base_mint,quoteMint:args.quote_mint,quoteLotSize,baseLotSize});
-
-
-
-
-
-
-
-
-
-    //
-
-
-  
-  
-
-    // console.log("market_id : ",market_id.toBase58());
+    
+    console.log("market: ", market_id );
+    
 
 
 
